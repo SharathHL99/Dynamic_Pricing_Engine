@@ -1,0 +1,413 @@
+2026-07-06T19:35:27.816+05:30  INFO 15672 --- [CrudOperationSpring] [restartedMain] namicPricingEngineFullprojectApplication : Starting DynamicPricingEngineFullprojectApplication using Java 17.0.19 with PID 15672 (C:\springfile\Dynamic_Pricing_Engine_Fullproject\target\classes started by admin in C:\springfile\Dynamic_Pricing_Engine_Fullproject)
+2026-07-06T19:35:27.822+05:30 DEBUG 15672 --- [CrudOperationSpring] [restartedMain] namicPricingEngineFullprojectApplication : Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-07-06T19:35:27.823+05:30  INFO 15672 --- [CrudOperationSpring] [restartedMain] namicPricingEngineFullprojectApplication : No active profile set, falling back to 1 default profile: "default"
+2026-07-06T19:35:27.919+05:30  INFO 15672 --- [CrudOperationSpring] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-07-06T19:35:27.920+05:30  INFO 15672 --- [CrudOperationSpring] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-07-06T19:35:29.186+05:30  INFO 15672 --- [CrudOperationSpring] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-06T19:35:29.280+05:30  INFO 15672 --- [CrudOperationSpring] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 78 ms. Found 3 JPA repository interfaces.
+2026-07-06T19:35:30.115+05:30  INFO 15672 --- [CrudOperationSpring] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-07-06T19:35:30.135+05:30  INFO 15672 --- [CrudOperationSpring] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-07-06T19:35:30.136+05:30  INFO 15672 --- [CrudOperationSpring] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.21]
+2026-07-06T19:35:30.220+05:30  INFO 15672 --- [CrudOperationSpring] [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 2299 ms
+2026-07-06T19:35:30.481+05:30  INFO 15672 --- [CrudOperationSpring] [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-07-06T19:35:30.591+05:30  INFO 15672 --- [CrudOperationSpring] [restartedMain] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.12.Final
+2026-07-06T19:35:31.347+05:30  INFO 15672 --- [CrudOperationSpring] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-06T19:35:31.406+05:30  INFO 15672 --- [CrudOperationSpring] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-07-06T19:35:31.636+05:30  INFO 15672 --- [CrudOperationSpring] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@59411094
+2026-07-06T19:35:31.644+05:30  INFO 15672 --- [CrudOperationSpring] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-07-06T19:35:31.800+05:30  INFO 15672 --- [CrudOperationSpring] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dynamic_pricing_db?useSSL=false]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.46
+	Default catalog/schema: dynamic_pricing_db/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-07-06T19:35:33.288+05:30  INFO 15672 --- [CrudOperationSpring] [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-06T19:35:33.546+05:30  WARN 15672 --- [CrudOperationSpring] [restartedMain] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "create table pricing_rules (id bigint not null auto_increment, condition varchar(255) not null, priority integer not null, type enum ('INVENTORY_BASED','SURGE','TIME_BASED') not null, value decimal(38,2) not null, version bigint, primary key (id)) engine=InnoDB" via JDBC [You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'condition varchar(255) not null, priority integer not null, type enum ('INVENTOR' at line 1]
+
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "create table pricing_rules (id bigint not null auto_increment, condition varchar(255) not null, priority integer not null, type enum ('INVENTORY_BASED','SURGE','TIME_BASED') not null, value decimal(38,2) not null, version bigint, primary key (id)) engine=InnoDB" via JDBC [You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'condition varchar(255) not null, priority integer not null, type enum ('INVENTOR' at line 1]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:81) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:566) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:506) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.createTable(AbstractSchemaMigrator.java:305) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:80) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:220) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:96) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:269) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$1(SchemaManagementToolCoordinator.java:101) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at java.base/java.util.HashMap.forEach(HashMap.java:1421) ~[na:na]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:100) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:35) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:33) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:323) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.internal.SessionFactoryRegistry.instantiateSessionFactory(SessionFactoryRegistry.java:64) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:437) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1456) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:93) ~[spring-orm-7.0.7.jar:7.0.7]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:443) ~[spring-orm-7.0.7.jar:7.0.7]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:436) ~[spring-orm-7.0.7.jar:7.0.7]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:411) ~[spring-orm-7.0.7.jar:7.0.7]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:419) ~[spring-orm-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1864) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1813) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:603) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:201) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:977) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:621) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143) ~[spring-boot-web-server-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-4.0.6.jar:4.0.6]
+	at com.example.demo.DynamicPricingEngineFullprojectApplication.main(DynamicPricingEngineFullprojectApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:52) ~[spring-boot-devtools-4.0.6.jar:4.0.6]
+Caused by: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'condition varchar(255) not null, priority integer not null, type enum ('INVENTOR' at line 1
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112) ~[mysql-connector-j-9.7.0.jar:9.7.0]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114) ~[mysql-connector-j-9.7.0.jar:9.7.0]
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:839) ~[mysql-connector-j-9.7.0.jar:9.7.0]
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:687) ~[mysql-connector-j-9.7.0.jar:9.7.0]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95) ~[HikariCP-7.0.2.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-7.0.2.jar:na]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:76) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	... 43 common frames omitted
+
+2026-07-06T19:35:33.665+05:30  INFO 15672 --- [CrudOperationSpring] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-06T19:35:33.835+05:30  INFO 15672 --- [CrudOperationSpring] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-07-06T19:35:34.366+05:30  WARN 15672 --- [CrudOperationSpring] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-07-06T19:35:35.137+05:30  INFO 15672 --- [CrudOperationSpring] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-07-06T19:35:35.156+05:30  INFO 15672 --- [CrudOperationSpring] [restartedMain] namicPricingEngineFullprojectApplication : Started DynamicPricingEngineFullprojectApplication in 7.99 seconds (process running for 9.104)
+2026-07-06T19:35:35.163+05:30  WARN 15672 --- [CrudOperationSpring] [restartedMain] o.s.core.events.SpringDocAppInitializer  : SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-07-06T19:35:35.163+05:30  WARN 15672 --- [CrudOperationSpring] [restartedMain] o.s.core.events.SpringDocAppInitializer  : SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-07-06T19:35:55.487+05:30  INFO 15672 --- [CrudOperationSpring] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-07-06T19:35:55.488+05:30  INFO 15672 --- [CrudOperationSpring] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-07-06T19:35:55.491+05:30  INFO 15672 --- [CrudOperationSpring] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2026-07-06T19:37:15.754+05:30  WARN 15672 --- [CrudOperationSpring] [http-nio-8080-exec-8] org.hibernate.orm.jdbc.error             : HHH000247: ErrorCode: 1064, SQLState: 42000
+2026-07-06T19:37:15.755+05:30  WARN 15672 --- [CrudOperationSpring] [http-nio-8080-exec-8] org.hibernate.orm.jdbc.error             : You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'condition,priority,type,value,version) values ('Demand Greater Than 100',1,'SURG' at line 1
+2026-07-06T19:37:15.785+05:30  WARN 15672 --- [CrudOperationSpring] [http-nio-8080-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.dao.InvalidDataAccessResourceUsageException: could not execute statement [You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'condition,priority,type,value,version) values ('Demand Greater Than 100',1,'SURG' at line 1] [insert into pricing_rules (condition,priority,type,value,version) values (?,?,?,?,?)]; SQL [insert into pricing_rules (condition,priority,type,value,version) values (?,?,?,?,?)]]
+2026-07-06T19:37:35.110+05:30  WARN 15672 --- [CrudOperationSpring] [http-nio-8080-exec-10] org.hibernate.orm.jdbc.error             : HHH000247: ErrorCode: 1064, SQLState: 42000
+2026-07-06T19:37:35.111+05:30  WARN 15672 --- [CrudOperationSpring] [http-nio-8080-exec-10] org.hibernate.orm.jdbc.error             : You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'condition,priority,type,value,version) values ('6 PM to 10 PM',2,'TIME_BASED',15' at line 1
+2026-07-06T19:37:35.115+05:30  WARN 15672 --- [CrudOperationSpring] [http-nio-8080-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.dao.InvalidDataAccessResourceUsageException: could not execute statement [You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'condition,priority,type,value,version) values ('6 PM to 10 PM',2,'TIME_BASED',15' at line 1] [insert into pricing_rules (condition,priority,type,value,version) values (?,?,?,?,?)]; SQL [insert into pricing_rules (condition,priority,type,value,version) values (?,?,?,?,?)]]
+2026-07-06T19:38:39.781+05:30  INFO 15672 --- [CrudOperationSpring] [RMI TCP Connection(5)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2026-07-06T19:38:39.791+05:30  INFO 15672 --- [CrudOperationSpring] [RMI TCP Connection(5)-127.0.0.1] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-07-06T19:38:39.899+05:30  INFO 15672 --- [CrudOperationSpring] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-07-06T19:38:39.915+05:30  INFO 15672 --- [CrudOperationSpring] [RMI TCP Connection(5)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-07-06T19:38:39.919+05:30  INFO 15672 --- [CrudOperationSpring] [RMI TCP Connection(5)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-07-06T19:38:39.935+05:30  INFO 15672 --- [CrudOperationSpring] [RMI TCP Connection(5)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-07-06T19:44:46.837+05:30  INFO 18392 --- [CrudOperationSpring] [restartedMain] namicPricingEngineFullprojectApplication : Starting DynamicPricingEngineFullprojectApplication using Java 17.0.19 with PID 18392 (C:\springfile\Dynamic_Pricing_Engine_Fullproject\target\classes started by admin in C:\springfile\Dynamic_Pricing_Engine_Fullproject)
+2026-07-06T19:44:46.844+05:30 DEBUG 18392 --- [CrudOperationSpring] [restartedMain] namicPricingEngineFullprojectApplication : Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-07-06T19:44:46.846+05:30  INFO 18392 --- [CrudOperationSpring] [restartedMain] namicPricingEngineFullprojectApplication : No active profile set, falling back to 1 default profile: "default"
+2026-07-06T19:44:46.935+05:30  INFO 18392 --- [CrudOperationSpring] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-07-06T19:44:46.937+05:30  INFO 18392 --- [CrudOperationSpring] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-07-06T19:44:48.188+05:30  INFO 18392 --- [CrudOperationSpring] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-06T19:44:48.280+05:30  INFO 18392 --- [CrudOperationSpring] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 72 ms. Found 3 JPA repository interfaces.
+2026-07-06T19:44:48.978+05:30  INFO 18392 --- [CrudOperationSpring] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-07-06T19:44:48.998+05:30  INFO 18392 --- [CrudOperationSpring] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-07-06T19:44:48.998+05:30  INFO 18392 --- [CrudOperationSpring] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.21]
+2026-07-06T19:44:49.076+05:30  INFO 18392 --- [CrudOperationSpring] [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 2139 ms
+2026-07-06T19:44:49.304+05:30  INFO 18392 --- [CrudOperationSpring] [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-07-06T19:44:49.388+05:30  INFO 18392 --- [CrudOperationSpring] [restartedMain] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.12.Final
+2026-07-06T19:44:49.982+05:30  INFO 18392 --- [CrudOperationSpring] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-06T19:44:50.034+05:30  INFO 18392 --- [CrudOperationSpring] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-07-06T19:44:50.232+05:30  INFO 18392 --- [CrudOperationSpring] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7dc24c88
+2026-07-06T19:44:50.236+05:30  INFO 18392 --- [CrudOperationSpring] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-07-06T19:44:50.388+05:30  INFO 18392 --- [CrudOperationSpring] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dynamic_pricing_db?useSSL=false]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.46
+	Default catalog/schema: dynamic_pricing_db/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-07-06T19:44:51.578+05:30  INFO 18392 --- [CrudOperationSpring] [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-06T19:44:51.726+05:30  WARN 18392 --- [CrudOperationSpring] [restartedMain] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "create table pricing_rules (id bigint not null auto_increment, condition varchar(255) not null, priority integer not null, type enum ('INVENTORY_BASED','SURGE','TIME_BASED') not null, value decimal(38,2) not null, version bigint, primary key (id)) engine=InnoDB" via JDBC [You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'condition varchar(255) not null, priority integer not null, type enum ('INVENTOR' at line 1]
+
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "create table pricing_rules (id bigint not null auto_increment, condition varchar(255) not null, priority integer not null, type enum ('INVENTORY_BASED','SURGE','TIME_BASED') not null, value decimal(38,2) not null, version bigint, primary key (id)) engine=InnoDB" via JDBC [You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'condition varchar(255) not null, priority integer not null, type enum ('INVENTOR' at line 1]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:81) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:566) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:506) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.createTable(AbstractSchemaMigrator.java:305) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:80) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:220) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:96) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:269) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$1(SchemaManagementToolCoordinator.java:101) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at java.base/java.util.HashMap.forEach(HashMap.java:1421) ~[na:na]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:100) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:35) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:33) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:323) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.internal.SessionFactoryRegistry.instantiateSessionFactory(SessionFactoryRegistry.java:64) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:437) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1456) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:93) ~[spring-orm-7.0.7.jar:7.0.7]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:443) ~[spring-orm-7.0.7.jar:7.0.7]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:436) ~[spring-orm-7.0.7.jar:7.0.7]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:411) ~[spring-orm-7.0.7.jar:7.0.7]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:419) ~[spring-orm-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1864) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1813) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:603) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:201) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:977) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:621) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143) ~[spring-boot-web-server-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-4.0.6.jar:4.0.6]
+	at com.example.demo.DynamicPricingEngineFullprojectApplication.main(DynamicPricingEngineFullprojectApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:52) ~[spring-boot-devtools-4.0.6.jar:4.0.6]
+Caused by: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'condition varchar(255) not null, priority integer not null, type enum ('INVENTOR' at line 1
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112) ~[mysql-connector-j-9.7.0.jar:9.7.0]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114) ~[mysql-connector-j-9.7.0.jar:9.7.0]
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:839) ~[mysql-connector-j-9.7.0.jar:9.7.0]
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:687) ~[mysql-connector-j-9.7.0.jar:9.7.0]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95) ~[HikariCP-7.0.2.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-7.0.2.jar:na]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:76) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	... 43 common frames omitted
+
+2026-07-06T19:44:51.882+05:30  INFO 18392 --- [CrudOperationSpring] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-06T19:44:52.008+05:30  INFO 18392 --- [CrudOperationSpring] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-07-06T19:44:52.477+05:30  WARN 18392 --- [CrudOperationSpring] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-07-06T19:44:53.263+05:30  INFO 18392 --- [CrudOperationSpring] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-07-06T19:44:53.278+05:30  INFO 18392 --- [CrudOperationSpring] [restartedMain] namicPricingEngineFullprojectApplication : Started DynamicPricingEngineFullprojectApplication in 7.083 seconds (process running for 8.518)
+2026-07-06T19:44:53.282+05:30  WARN 18392 --- [CrudOperationSpring] [restartedMain] o.s.core.events.SpringDocAppInitializer  : SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-07-06T19:44:53.283+05:30  WARN 18392 --- [CrudOperationSpring] [restartedMain] o.s.core.events.SpringDocAppInitializer  : SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-07-06T19:45:00.719+05:30  INFO 18392 --- [CrudOperationSpring] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-07-06T19:45:00.721+05:30  INFO 18392 --- [CrudOperationSpring] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-07-06T19:45:00.723+05:30  INFO 18392 --- [CrudOperationSpring] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2026-07-06T19:45:44.583+05:30  WARN 18392 --- [CrudOperationSpring] [http-nio-8080-exec-6] org.hibernate.orm.jdbc.error             : HHH000247: ErrorCode: 1064, SQLState: 42000
+2026-07-06T19:45:44.583+05:30  WARN 18392 --- [CrudOperationSpring] [http-nio-8080-exec-6] org.hibernate.orm.jdbc.error             : You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'condition,priority,type,value,version) values ('Demand Greater Than 100',1,'SURG' at line 1
+2026-07-06T19:45:44.616+05:30  WARN 18392 --- [CrudOperationSpring] [http-nio-8080-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.dao.InvalidDataAccessResourceUsageException: could not execute statement [You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'condition,priority,type,value,version) values ('Demand Greater Than 100',1,'SURG' at line 1] [insert into pricing_rules (condition,priority,type,value,version) values (?,?,?,?,?)]; SQL [insert into pricing_rules (condition,priority,type,value,version) values (?,?,?,?,?)]]
+2026-07-06T19:45:51.966+05:30  WARN 18392 --- [CrudOperationSpring] [http-nio-8080-exec-8] org.hibernate.orm.jdbc.error             : HHH000247: ErrorCode: 1064, SQLState: 42000
+2026-07-06T19:45:51.967+05:30  WARN 18392 --- [CrudOperationSpring] [http-nio-8080-exec-8] org.hibernate.orm.jdbc.error             : You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'condition,priority,type,value,version) values ('Demand Greater Than 100',1,'SURG' at line 1
+2026-07-06T19:45:51.972+05:30  WARN 18392 --- [CrudOperationSpring] [http-nio-8080-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.dao.InvalidDataAccessResourceUsageException: could not execute statement [You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'condition,priority,type,value,version) values ('Demand Greater Than 100',1,'SURG' at line 1] [insert into pricing_rules (condition,priority,type,value,version) values (?,?,?,?,?)]; SQL [insert into pricing_rules (condition,priority,type,value,version) values (?,?,?,?,?)]]
+2026-07-06T19:46:22.285+05:30  WARN 18392 --- [CrudOperationSpring] [http-nio-8080-exec-10] org.hibernate.orm.jdbc.error             : HHH000247: ErrorCode: 1064, SQLState: 42000
+2026-07-06T19:46:22.285+05:30  WARN 18392 --- [CrudOperationSpring] [http-nio-8080-exec-10] org.hibernate.orm.jdbc.error             : You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'condition,priority,type,value,version) values ('6 PM to 10 PM',2,'TIME_BASED',15' at line 1
+2026-07-06T19:46:22.290+05:30  WARN 18392 --- [CrudOperationSpring] [http-nio-8080-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.dao.InvalidDataAccessResourceUsageException: could not execute statement [You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'condition,priority,type,value,version) values ('6 PM to 10 PM',2,'TIME_BASED',15' at line 1] [insert into pricing_rules (condition,priority,type,value,version) values (?,?,?,?,?)]; SQL [insert into pricing_rules (condition,priority,type,value,version) values (?,?,?,?,?)]]
+2026-07-06T19:50:07.521+05:30  INFO 18392 --- [CrudOperationSpring] [RMI TCP Connection(7)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2026-07-06T19:50:07.543+05:30  INFO 18392 --- [CrudOperationSpring] [RMI TCP Connection(7)-127.0.0.1] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-07-06T19:50:07.681+05:30  INFO 18392 --- [CrudOperationSpring] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-07-06T19:50:07.692+05:30  INFO 18392 --- [CrudOperationSpring] [RMI TCP Connection(7)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-07-06T19:50:07.697+05:30  INFO 18392 --- [CrudOperationSpring] [RMI TCP Connection(7)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-07-06T19:50:07.706+05:30  INFO 18392 --- [CrudOperationSpring] [RMI TCP Connection(7)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-07-06T19:51:29.224+05:30  INFO 19628 --- [CrudOperationSpring] [restartedMain] namicPricingEngineFullprojectApplication : Starting DynamicPricingEngineFullprojectApplication using Java 17.0.19 with PID 19628 (C:\springfile\Dynamic_Pricing_Engine_Fullproject\target\classes started by admin in C:\springfile\Dynamic_Pricing_Engine_Fullproject)
+2026-07-06T19:51:29.231+05:30 DEBUG 19628 --- [CrudOperationSpring] [restartedMain] namicPricingEngineFullprojectApplication : Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-07-06T19:51:29.233+05:30  INFO 19628 --- [CrudOperationSpring] [restartedMain] namicPricingEngineFullprojectApplication : No active profile set, falling back to 1 default profile: "default"
+2026-07-06T19:51:29.318+05:30  INFO 19628 --- [CrudOperationSpring] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-07-06T19:51:29.318+05:30  INFO 19628 --- [CrudOperationSpring] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-07-06T19:51:30.567+05:30  INFO 19628 --- [CrudOperationSpring] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-06T19:51:30.661+05:30  INFO 19628 --- [CrudOperationSpring] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 71 ms. Found 3 JPA repository interfaces.
+2026-07-06T19:51:31.381+05:30  INFO 19628 --- [CrudOperationSpring] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-07-06T19:51:31.402+05:30  INFO 19628 --- [CrudOperationSpring] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-07-06T19:51:31.402+05:30  INFO 19628 --- [CrudOperationSpring] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.21]
+2026-07-06T19:51:31.487+05:30  INFO 19628 --- [CrudOperationSpring] [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 2167 ms
+2026-07-06T19:51:31.728+05:30  INFO 19628 --- [CrudOperationSpring] [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-07-06T19:51:31.805+05:30  INFO 19628 --- [CrudOperationSpring] [restartedMain] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.12.Final
+2026-07-06T19:51:32.437+05:30  INFO 19628 --- [CrudOperationSpring] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-06T19:51:32.488+05:30  INFO 19628 --- [CrudOperationSpring] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-07-06T19:51:32.692+05:30  INFO 19628 --- [CrudOperationSpring] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2db90517
+2026-07-06T19:51:32.696+05:30  INFO 19628 --- [CrudOperationSpring] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-07-06T19:51:32.826+05:30  INFO 19628 --- [CrudOperationSpring] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dynamic_pricing_db?useSSL=false]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.46
+	Default catalog/schema: dynamic_pricing_db/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-07-06T19:51:34.025+05:30  INFO 19628 --- [CrudOperationSpring] [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-06T19:51:34.154+05:30  WARN 19628 --- [CrudOperationSpring] [restartedMain] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "create table pricing_rules (id bigint not null auto_increment, condition varchar(255) not null, priority integer not null, type enum ('INVENTORY_BASED','SURGE','TIME_BASED') not null, value decimal(38,2) not null, version bigint, primary key (id)) engine=InnoDB" via JDBC [You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'condition varchar(255) not null, priority integer not null, type enum ('INVENTOR' at line 1]
+
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "create table pricing_rules (id bigint not null auto_increment, condition varchar(255) not null, priority integer not null, type enum ('INVENTORY_BASED','SURGE','TIME_BASED') not null, value decimal(38,2) not null, version bigint, primary key (id)) engine=InnoDB" via JDBC [You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'condition varchar(255) not null, priority integer not null, type enum ('INVENTOR' at line 1]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:81) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:566) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:506) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.createTable(AbstractSchemaMigrator.java:305) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:80) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:220) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:96) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:269) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$1(SchemaManagementToolCoordinator.java:101) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at java.base/java.util.HashMap.forEach(HashMap.java:1421) ~[na:na]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:100) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:35) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:33) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:323) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.internal.SessionFactoryRegistry.instantiateSessionFactory(SessionFactoryRegistry.java:64) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:437) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1456) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:93) ~[spring-orm-7.0.7.jar:7.0.7]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:443) ~[spring-orm-7.0.7.jar:7.0.7]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:436) ~[spring-orm-7.0.7.jar:7.0.7]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:411) ~[spring-orm-7.0.7.jar:7.0.7]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:419) ~[spring-orm-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1864) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1813) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:603) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:201) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:977) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:621) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143) ~[spring-boot-web-server-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-4.0.6.jar:4.0.6]
+	at com.example.demo.DynamicPricingEngineFullprojectApplication.main(DynamicPricingEngineFullprojectApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:52) ~[spring-boot-devtools-4.0.6.jar:4.0.6]
+Caused by: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'condition varchar(255) not null, priority integer not null, type enum ('INVENTOR' at line 1
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112) ~[mysql-connector-j-9.7.0.jar:9.7.0]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114) ~[mysql-connector-j-9.7.0.jar:9.7.0]
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:839) ~[mysql-connector-j-9.7.0.jar:9.7.0]
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:687) ~[mysql-connector-j-9.7.0.jar:9.7.0]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95) ~[HikariCP-7.0.2.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-7.0.2.jar:na]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:76) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+	... 43 common frames omitted
+
+2026-07-06T19:51:34.196+05:30  INFO 19628 --- [CrudOperationSpring] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-06T19:51:34.342+05:30  INFO 19628 --- [CrudOperationSpring] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-07-06T19:51:34.821+05:30  WARN 19628 --- [CrudOperationSpring] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-07-06T19:51:35.579+05:30  INFO 19628 --- [CrudOperationSpring] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-07-06T19:51:35.597+05:30  INFO 19628 --- [CrudOperationSpring] [restartedMain] namicPricingEngineFullprojectApplication : Started DynamicPricingEngineFullprojectApplication in 7.098 seconds (process running for 8.412)
+2026-07-06T19:51:35.602+05:30  WARN 19628 --- [CrudOperationSpring] [restartedMain] o.s.core.events.SpringDocAppInitializer  : SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-07-06T19:51:35.603+05:30  WARN 19628 --- [CrudOperationSpring] [restartedMain] o.s.core.events.SpringDocAppInitializer  : SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-07-06T19:51:54.548+05:30  INFO 19628 --- [CrudOperationSpring] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-07-06T19:51:54.553+05:30  INFO 19628 --- [CrudOperationSpring] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-07-06T19:51:54.557+05:30  INFO 19628 --- [CrudOperationSpring] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2026-07-06T19:51:54.993+05:30  WARN 19628 --- [CrudOperationSpring] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.error             : HHH000247: ErrorCode: 1064, SQLState: 42000
+2026-07-06T19:51:54.993+05:30  WARN 19628 --- [CrudOperationSpring] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.error             : You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'condition,priority,type,value,version) values ('Demand Greater Than 100',1,'SURG' at line 1
+2026-07-06T19:51:55.180+05:30  WARN 19628 --- [CrudOperationSpring] [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.dao.InvalidDataAccessResourceUsageException: could not execute statement [You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'condition,priority,type,value,version) values ('Demand Greater Than 100',1,'SURG' at line 1] [insert into pricing_rules (condition,priority,type,value,version) values (?,?,?,?,?)]; SQL [insert into pricing_rules (condition,priority,type,value,version) values (?,?,?,?,?)]]
+2026-07-06T19:54:59.560+05:30  INFO 19628 --- [CrudOperationSpring] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2026-07-06T19:54:59.578+05:30  INFO 19628 --- [CrudOperationSpring] [Thread-1] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-07-06T19:54:59.732+05:30  INFO 19628 --- [CrudOperationSpring] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-07-06T19:54:59.739+05:30  INFO 19628 --- [CrudOperationSpring] [Thread-1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-07-06T19:54:59.745+05:30  INFO 19628 --- [CrudOperationSpring] [Thread-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-07-06T19:54:59.756+05:30  INFO 19628 --- [CrudOperationSpring] [Thread-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-07-06T19:54:59.986+05:30  INFO 19628 --- [CrudOperationSpring] [restartedMain] namicPricingEngineFullprojectApplication : Starting DynamicPricingEngineFullprojectApplication using Java 17.0.19 with PID 19628 (C:\springfile\Dynamic_Pricing_Engine_Fullproject\target\classes started by admin in C:\springfile\Dynamic_Pricing_Engine_Fullproject)
+2026-07-06T19:54:59.986+05:30 DEBUG 19628 --- [CrudOperationSpring] [restartedMain] namicPricingEngineFullprojectApplication : Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-07-06T19:54:59.987+05:30  INFO 19628 --- [CrudOperationSpring] [restartedMain] namicPricingEngineFullprojectApplication : No active profile set, falling back to 1 default profile: "default"
+2026-07-06T19:55:00.580+05:30  INFO 19628 --- [CrudOperationSpring] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-06T19:55:00.607+05:30  INFO 19628 --- [CrudOperationSpring] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 23 ms. Found 3 JPA repository interfaces.
+2026-07-06T19:55:00.741+05:30  INFO 19628 --- [CrudOperationSpring] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-07-06T19:55:00.743+05:30  INFO 19628 --- [CrudOperationSpring] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-07-06T19:55:00.743+05:30  INFO 19628 --- [CrudOperationSpring] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.21]
+2026-07-06T19:55:00.781+05:30  INFO 19628 --- [CrudOperationSpring] [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 791 ms
+2026-07-06T19:55:00.850+05:30  INFO 19628 --- [CrudOperationSpring] [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-07-06T19:55:00.895+05:30  INFO 19628 --- [CrudOperationSpring] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-06T19:55:00.897+05:30  INFO 19628 --- [CrudOperationSpring] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2026-07-06T19:55:00.903+05:30  INFO 19628 --- [CrudOperationSpring] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@283e8015
+2026-07-06T19:55:00.905+05:30  INFO 19628 --- [CrudOperationSpring] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2026-07-06T19:55:00.906+05:30  INFO 19628 --- [CrudOperationSpring] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dynamic_pricing_db?useSSL=false]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.46
+	Default catalog/schema: dynamic_pricing_db/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-07-06T19:55:01.014+05:30  INFO 19628 --- [CrudOperationSpring] [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-06T19:55:01.078+05:30  INFO 19628 --- [CrudOperationSpring] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-06T19:55:01.289+05:30  WARN 19628 --- [CrudOperationSpring] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-07-06T19:55:01.550+05:30  INFO 19628 --- [CrudOperationSpring] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-07-06T19:55:01.557+05:30  INFO 19628 --- [CrudOperationSpring] [restartedMain] namicPricingEngineFullprojectApplication : Started DynamicPricingEngineFullprojectApplication in 1.659 seconds (process running for 214.373)
+2026-07-06T19:55:01.559+05:30  WARN 19628 --- [CrudOperationSpring] [restartedMain] o.s.core.events.SpringDocAppInitializer  : SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-07-06T19:55:01.559+05:30  WARN 19628 --- [CrudOperationSpring] [restartedMain] o.s.core.events.SpringDocAppInitializer  : SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-07-06T19:55:01.561+05:30  INFO 19628 --- [CrudOperationSpring] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2026-07-06T19:55:04.597+05:30  INFO 19628 --- [CrudOperationSpring] [RMI TCP Connection(6)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2026-07-06T19:55:04.600+05:30  INFO 19628 --- [CrudOperationSpring] [RMI TCP Connection(6)-127.0.0.1] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-07-06T19:55:04.721+05:30  INFO 19628 --- [CrudOperationSpring] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-07-06T19:55:04.725+05:30  INFO 19628 --- [CrudOperationSpring] [RMI TCP Connection(6)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-07-06T19:55:04.725+05:30  INFO 19628 --- [CrudOperationSpring] [RMI TCP Connection(6)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2026-07-06T19:55:04.729+05:30  INFO 19628 --- [CrudOperationSpring] [RMI TCP Connection(6)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2026-07-06T19:55:09.754+05:30  INFO 17652 --- [CrudOperationSpring] [restartedMain] namicPricingEngineFullprojectApplication : Starting DynamicPricingEngineFullprojectApplication using Java 17.0.19 with PID 17652 (C:\springfile\Dynamic_Pricing_Engine_Fullproject\target\classes started by admin in C:\springfile\Dynamic_Pricing_Engine_Fullproject)
+2026-07-06T19:55:09.758+05:30 DEBUG 17652 --- [CrudOperationSpring] [restartedMain] namicPricingEngineFullprojectApplication : Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-07-06T19:55:09.760+05:30  INFO 17652 --- [CrudOperationSpring] [restartedMain] namicPricingEngineFullprojectApplication : No active profile set, falling back to 1 default profile: "default"
+2026-07-06T19:55:09.849+05:30  INFO 17652 --- [CrudOperationSpring] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-07-06T19:55:09.849+05:30  INFO 17652 --- [CrudOperationSpring] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-07-06T19:55:11.122+05:30  INFO 17652 --- [CrudOperationSpring] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-06T19:55:11.229+05:30  INFO 17652 --- [CrudOperationSpring] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 78 ms. Found 3 JPA repository interfaces.
+2026-07-06T19:55:11.940+05:30  INFO 17652 --- [CrudOperationSpring] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-07-06T19:55:11.960+05:30  INFO 17652 --- [CrudOperationSpring] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-07-06T19:55:11.961+05:30  INFO 17652 --- [CrudOperationSpring] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.21]
+2026-07-06T19:55:12.060+05:30  INFO 17652 --- [CrudOperationSpring] [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 2209 ms
+2026-07-06T19:55:12.363+05:30  INFO 17652 --- [CrudOperationSpring] [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-07-06T19:55:12.449+05:30  INFO 17652 --- [CrudOperationSpring] [restartedMain] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.12.Final
+2026-07-06T19:55:13.062+05:30  INFO 17652 --- [CrudOperationSpring] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-06T19:55:13.116+05:30  INFO 17652 --- [CrudOperationSpring] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-07-06T19:55:13.324+05:30  INFO 17652 --- [CrudOperationSpring] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2db90517
+2026-07-06T19:55:13.329+05:30  INFO 17652 --- [CrudOperationSpring] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-07-06T19:55:13.481+05:30  INFO 17652 --- [CrudOperationSpring] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dynamic_pricing_db?useSSL=false]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.46
+	Default catalog/schema: dynamic_pricing_db/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-07-06T19:55:14.663+05:30  INFO 17652 --- [CrudOperationSpring] [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-06T19:55:14.784+05:30  INFO 17652 --- [CrudOperationSpring] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-06T19:55:14.907+05:30  INFO 17652 --- [CrudOperationSpring] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-07-06T19:55:15.369+05:30  WARN 17652 --- [CrudOperationSpring] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-07-06T19:55:16.068+05:30  INFO 17652 --- [CrudOperationSpring] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-07-06T19:55:16.086+05:30  INFO 17652 --- [CrudOperationSpring] [restartedMain] namicPricingEngineFullprojectApplication : Started DynamicPricingEngineFullprojectApplication in 6.959 seconds (process running for 8.15)
+2026-07-06T19:55:16.090+05:30  WARN 17652 --- [CrudOperationSpring] [restartedMain] o.s.core.events.SpringDocAppInitializer  : SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-07-06T19:55:16.092+05:30  WARN 17652 --- [CrudOperationSpring] [restartedMain] o.s.core.events.SpringDocAppInitializer  : SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-07-06T19:57:07.650+05:30  INFO 17652 --- [CrudOperationSpring] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-07-06T19:57:07.653+05:30  INFO 17652 --- [CrudOperationSpring] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-07-06T19:57:07.653+05:30  INFO 17652 --- [CrudOperationSpring] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2026-07-06T20:09:41.557+05:30  INFO 17652 --- [CrudOperationSpring] [RMI TCP Connection(18)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2026-07-06T20:09:41.567+05:30  INFO 17652 --- [CrudOperationSpring] [RMI TCP Connection(18)-127.0.0.1] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-07-06T20:09:41.665+05:30  INFO 17652 --- [CrudOperationSpring] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-07-06T20:09:41.671+05:30  INFO 17652 --- [CrudOperationSpring] [RMI TCP Connection(18)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-07-06T20:09:41.678+05:30  INFO 17652 --- [CrudOperationSpring] [RMI TCP Connection(18)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-07-06T20:09:41.687+05:30  INFO 17652 --- [CrudOperationSpring] [RMI TCP Connection(18)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
