@@ -1,0 +1,211 @@
+# Database Schema – Dynamic Pricing Engine
+
+## Database Name
+
+```sql
+dynamic_pricing_db
+```
+
+---
+
+# Database Tables
+
+The Dynamic Pricing Engine consists of **three tables**:
+
+1. Products
+2. Pricing Rules
+3. Dynamic Prices
+
+---
+
+# 1. Products Table
+
+Stores the base information of every product.
+
+| Column Name | Data Type | Constraints |
+|-------------|----------|-------------|
+| id | BIGINT | Primary Key, Auto Increment |
+| name | VARCHAR(255) | NOT NULL |
+| base_price | DECIMAL(10,2) | NOT NULL |
+
+### SQL
+
+```sql
+CREATE TABLE products (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    base_price DECIMAL(10,2) NOT NULL
+);
+```
+
+---
+
+# 2. Pricing Rules Table
+
+Stores configurable pricing rules used during price calculation.
+
+| Column Name | Data Type | Constraints |
+|-------------|----------|-------------|
+| id | BIGINT | Primary Key, Auto Increment |
+| type | VARCHAR(50) | NOT NULL |
+| value | DECIMAL(10,2) | NOT NULL |
+| rule_condition | VARCHAR(255) | NOT NULL |
+| priority | INT | NOT NULL |
+| version | BIGINT | Optimistic Locking |
+
+### SQL
+
+```sql
+CREATE TABLE pricing_rules (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    type VARCHAR(50) NOT NULL,
+    value DECIMAL(10,2) NOT NULL,
+    rule_condition VARCHAR(255) NOT NULL,
+    priority INT NOT NULL,
+    version BIGINT
+);
+```
+
+---
+
+# 3. Dynamic Prices Table
+
+Stores every dynamically calculated price for auditing and history.
+
+| Column Name | Data Type | Constraints |
+|-------------|----------|-------------|
+| id | BIGINT | Primary Key, Auto Increment |
+| product_id | BIGINT | Foreign Key |
+| final_price | DECIMAL(10,2) | NOT NULL |
+| timestamp | DATETIME | NOT NULL |
+
+### SQL
+
+```sql
+CREATE TABLE dynamic_prices (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    product_id BIGINT NOT NULL,
+    final_price DECIMAL(10,2) NOT NULL,
+    timestamp DATETIME NOT NULL,
+
+    CONSTRAINT fk_product
+        FOREIGN KEY(product_id)
+        REFERENCES products(id)
+);
+```
+
+---
+
+# Entity Relationship (ER Diagram)
+
+```
+                         +----------------------+
+                         |      PRODUCTS        |
+                         +----------------------+
+                         | PK id               |
+                         | name               |
+                         | base_price         |
+                         +----------------------+
+                                   |
+                                   | 1
+                                   |
+                                   | N
+                         +----------------------+
+                         |   DYNAMIC_PRICES     |
+                         +----------------------+
+                         | PK id               |
+                         | FK product_id       |
+                         | final_price         |
+                         | timestamp           |
+                         +----------------------+
+
++------------------------------------------------------+
+|                  PRICING_RULES                       |
++------------------------------------------------------+
+| PK id                                                |
+| type (SURGE / TIME_BASED / INVENTORY_BASED)          |
+| value                                                |
+| rule_condition                                       |
+| priority                                             |
+| version                                              |
++------------------------------------------------------+
+```
+
+---
+
+# Relationship Description
+
+### Product → DynamicPrice
+
+- One Product can have many Dynamic Price records.
+- Each Dynamic Price belongs to one Product.
+- Relationship: **One-to-Many**
+
+```text
+Product (1) --------------------< DynamicPrice (Many)
+```
+
+---
+
+### PricingRule
+
+PricingRule is an independent table.
+
+- Stores all pricing rules.
+- Used by the Pricing Engine during runtime.
+- No database relationship with Product.
+- Applied dynamically using the Strategy Pattern.
+
+---
+
+# Database Flow
+
+```
+                  Product
+                     │
+               Base Price
+                     │
+                     ▼
+        ----------------------------
+        │          │              │
+        ▼          ▼              ▼
+   Surge Rule  Time Rule   Inventory Rule
+        │          │              │
+        └──────────┼──────────────┘
+                   ▼
+            Final Price Calculated
+                   ▼
+          Stored in DynamicPrice Table
+```
+
+---
+
+# Normalization
+
+The database follows **Third Normal Form (3NF)**:
+
+- **Products** table stores only product details.
+- **Pricing Rules** table stores only configurable pricing rules.
+- **Dynamic Prices** table stores only calculated price history.
+- No duplicate data is stored.
+- Foreign key ensures referential integrity.
+
+---
+
+# Summary
+
+| Table | Purpose |
+|--------|---------|
+| Products | Stores product details and base price |
+| Pricing_Rules | Stores configurable pricing rules |
+| Dynamic_Prices | Stores calculated final prices with timestamps |
+
+Total Tables: **3**
+
+Primary Keys: **3**
+
+Foreign Keys: **1**
+
+Relationship:
+- **Product (1) → DynamicPrice (Many)**
+- **PricingRule is independent and used by the pricing engine at runtime**
