@@ -1,0 +1,316 @@
+{
+  "info": {
+    "_postman_id": "8c9b2a54-dynamic-pricing-engine",
+    "name": "Dynamic Pricing Engine",
+    "description": "Complete API Collection for Dynamic Pricing Engine",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
+    }
+  ],
+  "item": [
+    {
+      "name": "Product APIs",
+      "item": [
+        {
+          "name": "Create Product",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"iPhone 16 Pro\",\n    \"basePrice\": 120000\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/products",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "products"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Product By Id",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/products/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "products",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get All Products",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/products",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "products"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Product",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"iPhone 16 Pro Max\",\n    \"basePrice\": 135000\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/products/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "products",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Delete Product",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{baseUrl}}/api/products/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "products",
+                "1"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Pricing Rule APIs",
+      "item": [
+        {
+          "name": "Create Surge Rule",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"type\": \"SURGE\",\n    \"value\": 20,\n    \"condition\": \"Demand Greater Than 100\",\n    \"priority\": 1\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/pricing-rules",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "pricing-rules"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create Time Based Rule",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"type\": \"TIME_BASED\",\n    \"value\": 15,\n    \"condition\": \"6 PM to 10 PM\",\n    \"priority\": 2\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/pricing-rules",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "pricing-rules"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create Inventory Rule",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"type\": \"INVENTORY_BASED\",\n    \"value\": 10,\n    \"condition\": \"Inventory Less Than 20\",\n    \"priority\": 3\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/pricing-rules",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "pricing-rules"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Rule By Id",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/pricing-rules/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "pricing-rules",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get All Rules",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/pricing-rules",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "pricing-rules"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Rule",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"type\": \"SURGE\",\n    \"value\": 30,\n    \"condition\": \"Demand Greater Than 150\",\n    \"priority\": 1\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/pricing-rules/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "pricing-rules",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Delete Rule",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{baseUrl}}/api/pricing-rules/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "pricing-rules",
+                "1"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Dynamic Pricing API",
+      "item": [
+        {
+          "name": "Calculate Dynamic Price",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"productId\": 1,\n    \"demand\": 150,\n    \"inventory\": 15,\n    \"hour\": 19\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/pricing/calculate",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "pricing",
+                "calculate"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
