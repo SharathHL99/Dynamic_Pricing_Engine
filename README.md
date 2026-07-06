@@ -71,7 +71,6 @@ Operations:
 - Delete Rule
 - Get Rule
 - Get All Rules
-
 ---
 
 ### Dynamic Pricing
