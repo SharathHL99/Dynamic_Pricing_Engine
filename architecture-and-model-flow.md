@@ -7,7 +7,7 @@ The system follows a classic **Spring Boot layered architecture**, with a Strate
 ```
                     ┌─────────────────────────────┐
                     │        Client / Admin        │
-                    │   (REST consumers, UI, jobs) │
+                    │   (REST consumers, UI, jobs) │ 
                     └───────────────┬──────────────┘
                                     │ HTTP
                     ┌───────────────▼──────────────┐
